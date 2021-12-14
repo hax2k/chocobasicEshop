@@ -1,0 +1,230 @@
+<div class="page-title">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 produti">
+        <h4>CHECKOUT</h4>
+      </div>
+      <div class="col-md-2 cart">
+        <h4><a href="#">chart (2 items)</a></h4>
+        <ul>
+          <li><a href="#">home /</a></li>
+          <li><a href="#">products</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- shop-page -->
+<div class="container checking-area">
+  <div class="row">
+    <div class="col-md-9 cart-area">
+      <div class="sixteen columns cart-section oflow">
+        <!-- Cart -->
+        <table class="table cart-table responsive-table">
+          <tr>
+            <th>
+              Item
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Price
+            </th>
+            <th>
+              Quantity
+            </th>
+            <th>
+              Total
+            </th>
+            <th>
+            </th>
+          </tr>
+          <!-- Item #1 -->
+          <tr *ngFor="let item of this.Billing.Items">
+            <td>
+              <img src="{{item.product.imguri}}" alt="" width="80px" height="70px" />
+            </td>
+            <td class="cart-title">
+              <a href="#">{{item.product.name}}</a>
+            </td>
+            <td>
+              {{item.product.price | currency}}
+            </td>
+            <td>
+              <form action='#'>
+                <div class="qtyminus">
+                </div>
+                <input type="number" [min]="1" name="quantity" [(ngModel)]="item.productquantity" class="qty" />
+                <div class="qtyplus">
+                </div>
+              </form>
+            </td>
+            <td class="cart-total">
+              {{item.subtotal}}
+            </td>
+            <td>
+              <a class="cart-remove"><i (click)="removeItem(item)" class="fa-lg fas fa-trash"
+                  style="color:#5a423b;"></i></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="taxat">
+        <form action="#" method="get" class="apply-coupon">
+          <input class="search-field" type="text" placeholder="Coupon Code" value="">
+          <a href="#" class="coupon-btn checkout-btn">Apply Coupon</a>
+        </form>
+        <div class="cart-buttons">
+          <a href="#">Proceed to Checkout</a>
+          <a href="#">Update Cart</a>
+        </div>
+        <div class="col-md-6 taxes nopadding">
+          <ul>
+            <li><a href="#">shipping &amp; taxes</a></li>
+          </ul>
+          <p>
+            Enter your destination to get a shipping estimate.
+          </p>
+          <div>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="email" class="form-control" placeholder="your name">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="password" class="form-control" placeholder="your e-mail">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="password" class="form-control" placeholder="post code">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Cart Totals -->
+        <div class="col-md-6 eight columns cart-totals">
+          <table class="table cart-table test">
+            <tbody>
+              <tr>
+                <th>
+                  Cart Subtotal
+                </th>
+                <td>
+                  <strong>${{this.Billing.GrandTotal}}</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Shipping and Handling
+                </th>
+                <td>
+                  Free Shipping
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Order Total
+                </th>
+                <td>
+                  <strong>$178.00</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <a href="#" class="calculate-shipping">Checkout</a>
+        </div>
+      </div>
+      <!-- Start -->
+      <!-- end -->
+    </div>
+    <!-- Sidebar -->
+    <div class="col-md-3 shop-sidebar">
+      <div class="sidebar-widgets">
+        <div class="shop-widget">
+          <h4>Categories</h4>
+          <ul class="category-shop-list">
+            <li>
+              <a class="accordion-link" href="#">Watches <span>(4)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Jewellery <span>(8)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Technology <span>(6)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Kids <span>(5)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Electronics <span>(4)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Sports <span>(5)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="accordion-link" href="#">Bicycles <span>(7)</span></a>
+              <ul class="accordion-list-content">
+                <li><a href="#">Jackets <span>(7)</span></a></li>
+                <li><a href="#">Electronics <span>(10)</span></a></li>
+                <li><a href="#">Sports <span>(12)</span></a></li>
+                <li><a href="#">Garden <span>(2)</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="shop-widget">
+          <h4>Popular Products</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--prize-->
+<div class="prize">
+  <div class="container">
+    <h1>win our special prize on our facebook page</h1>
+  </div>
+</div>
+<!--end-prize-->

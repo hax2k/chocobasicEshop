@@ -1,0 +1,8 @@
+<ng-container *ngIf="product.quantity<1 then template2 else template1" ></ng-container>
+
+<ng-template #template1>
+  <i class="fa-lg fas fa-cart-plus" style="color:#5a423b;" (click)="reltoparent()" ></i>
+</ng-template>
+<ng-template #template2>
+  <div><a><span>sold out</span></a></div>
+</ng-template>
