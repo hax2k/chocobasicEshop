@@ -13,6 +13,10 @@ export class CartserviceService {
     return this.cartItems;
   }
 
+  getCartCount() {
+    return this.cartItems.length;
+  }
+
   addToCart(item: Product) {
     this.cartItems.push(item);
   }

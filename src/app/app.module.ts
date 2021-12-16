@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { AvailabilityComponent } from './home/availability/availability.component';
 import { FormsModule } from '@angular/forms';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     SingleproductComponent,
     AboutComponent,
     ContactComponent,
-    AvailabilityComponent
+    AvailabilityComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     ToastrModule.forRoot({
       timeOut: 1000,
       positionClass: 'toast-top-center',
-      preventDuplicates: true,
+
     })
   ],
   providers: [],

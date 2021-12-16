@@ -1,5 +1,6 @@
+import { OrderserviceService } from './../services/orderservice.service';
 import { Component, OnInit } from '@angular/core';
-import { Product, CartItem, Billing } from 'src/models/products';
+import { Product, CartItem, Billing, Order } from 'src/models/products';
 import { CartserviceService } from '../services/cartservice.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,27 +10,32 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  Billing:Billing;
+  Billing: Billing;
+  order:Order;
   finalkart: CartItem[] = []
   cartItem: Product[] = []
+  lenth: number = 0;
 
-  constructor(private cartS: CartserviceService, private toastService: ToastrService) { }
+  constructor(private cartS: CartserviceService, private toastService: ToastrService,private Orderservice: OrderserviceService) { }
 
   ngOnInit(): void {
-    this.Billing=new Billing();
-    this.Billing.Items=new Array<CartItem>();
+    this.Billing = new Billing();
+    this.order = new Order();
+    this.Billing.Items = new Array<CartItem>();
     this.cartItem = this.cartS.getAllItems();
-    for(let product of this.cartItem) {
-      let obj=new CartItem();
-      obj.product=product;
-      obj.productquantity=1;
-      obj.subtotal=obj.productquantity*obj.product.price;
+    for (let product of this.cartItem) {
+      let obj = new CartItem();
+      obj.product = product;
+      obj.productquantity = 1;
+      obj.subtotal = obj.productquantity * obj.product.price;
 
       this.Billing.Items.push(obj);
     }
+    this.getCartCount();
+  }
 
-    console.log(this.cartItem)
-
+  getCartCount() {
+    this.lenth = this.Billing.Items.length;
   }
 
   removeItem(item: CartItem) {
@@ -37,7 +43,16 @@ export class CartComponent implements OnInit {
     this.Billing.Items.splice(index, 1);
     this.cartS.deleteItem(item.product);
     this.toastService.error("Removed from cart")
+    this.getCartCount();
   }
+addOrder(){
+  this.order.amount= this.Billing.GrandTotal;
+  this.Orderservice.addOrder(this.order);
+  this.toastService.success("Order Placed");
+  console.log(this.order)
+  this.order =  new Order();
+
+}
 
 
 }

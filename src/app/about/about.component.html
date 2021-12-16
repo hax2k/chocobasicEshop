@@ -1,188 +1,134 @@
 <div class="page-title">
   <div class="container">
-      <div class="row">
-          <div class="col-md-10 produti">
-              <h4>products</h4>
-          </div>
-          <div class="col-md-2 cart">
-              <h4><a href="#">chart (2 items)</a></h4>
-              <ul>
-                  <li><a href="#">home /</a></li>
-                  <li><a href="#">products</a></li>
-              </ul>
-          </div>
+    <div class="row">
+      <div class="col-md-10 produti">
+        <h4>products</h4>
       </div>
+      <div class="col-md-2 cart">
+        <h4><a routerLink="/cart">chart (2 items)</a></h4>
+        <ul>
+          <li><a routerLink="/">home /</a></li>
+          <li><a routerLink="/products">products</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <!--Icon Blocks-->
 <div class="container">
   <div class="icon-blocks">
-      <div class="col-md-4">
-          <p>
-              <i class="fa fa-group"></i>personalized shop
-          </p>
-      </div>
-      <div class="col-md-4">
-          <p>
-              <i class="fa fa-bell"></i>email notification
-          </p>
-      </div>
-      <div class="col-md-4">
-          <p>
-              <i class="fa fa-globe"></i>worldwide shipping
-          </p>
-      </div>
+    <div class="col-md-4">
+      <p>
+        <i class="fa fa-group"></i>personalized shop
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p>
+        <i class="fa fa-bell"></i>email notification
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p>
+        <i class="fa fa-globe"></i>worldwide shipping
+      </p>
+    </div>
   </div>
 </div>
 <!--end Icon Blocks-->
 <!-- Team Members -->
-<div class="container">
-  <div class="row members">
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member1.jpg" alt="img">
-          <div class="text">
+<ng-container *ngIf="toggle" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form class="form-horizontal" role="form">
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="user.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control" name="designation" placeholder="Designation"
+                [(ngModel)]="user.designation">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control" name="imguri" placeholder="Image Url" [(ngModel)]="user.imguri">
+            </div>
+          </div>
+          <a *ngIf="!isedit" (click)="addUser()"class="calculate-shipping" >Add User</a>
+          <a   *ngIf="isedit" (click)="isEdittoggle();newObj()"class="calculate-shipping" >Edit User</a>
+        </form>
+
+      </div>
+      <div class="col-md-6">
+        <div class="row members">
+          <div class="col-md-6 col-sm-6">
+
+            <img *ngIf="!user.imguri" src="https://st.depositphotos.com/1052233/2885/v/600/depositphotos_28850541-stock-illustration-male-default-profile-picture.jpg" alt="img" width="270px" height="239px" >
+            <img *ngIf="user.imguri" src="{{user.imguri}}" alt="img" width="270px" height="239px" >
+            <div class="text">
               <p>
-                   Robb Walter
+                {{user.name}}
               </p>
               <span>
-              CEO </span>
+                {{user.designation}} </span>
               <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
+                <ul>
+                  <li><a><i class="fab fa-facebook"></i></a></li>
+                  <li><a><i class="fab fa-instagram"></i></a></li>
+                  <li><a><i class="fab fa-twitter"></i></a></li>
+                </ul>
               </div>
+            </div>
           </div>
+        </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member2.jpg" alt="img">
-          <div class="text">
-              <p>
-                   Mike Smith
-              </p>
-              <span>
-              Designer </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member3.jpg" alt="img">
-          <div class="text">
-              <p>
-                   Jonathan Doe
-              </p>
-              <span>
-              Front-End </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member4.jpg" alt="img">
-          <div class="text">
-              <p>
-                   Steve Loyal
-              </p>
-              <span>
-              Back-End </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+    </div>
+
   </div>
-  <div class="row members">
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member5.jpg" alt="img">
-          <div class="text">
-              <p>
-                   Simon Jacobs
-              </p>
-              <span>
-              Marketing</span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
+</ng-container>
+
+<ng-container *ngIf="!toggle" >
+  <div class="container">
+    <div class="row ml-5 ">
+      <i  class="fa-lg fas fa-user-plus" style="margin-left: 20px; color: white;" (click)="switch()" ></i>
+      <i  class="fa-lg fas fa-user-edit" style="margin-left: 20px; color: white;" (click)="isEdittoggle()" ></i>
+    </div>
+    <br>
+    <div class="row members">
+      <div class="col-md-3 col-sm-6" *ngFor="let item of userdata">
+        <div class="topedit">
+          <i *ngIf="isedit" class="fas fa-edit " (click)="editUser(item)" ></i>
+          <i *ngIf="isedit" class="fas fa-trash " (click)="deleteUser(item)" ></i>
+        </div>
+        <img src="{{item.imguri}}" alt="img">
+        <div class="text">
+          <p>
+            {{item.name}}
+          </p>
+          <span>
+            {{item.designation}} </span>
+          <div class="members-socials">
+            <ul>
+              <li><a><i class="fab fa-facebook"></i></a></li>
+              <li><a><i class="fab fa-instagram"></i></a></li>
+              <li><a><i class="fab fa-twitter"></i></a></li>
+            </ul>
           </div>
+        </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member6.jpg" alt="img">
-          <div class="text">
-              <p>
-                   James Gordon
-              </p>
-              <span>
-              Support </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member7.jpg" alt="img">
-          <div class="text">
-              <p>
-                   John Smith
-              </p>
-              <span>
-              Support </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <img src="assets/images/member8.jpg" alt="img">
-          <div class="text">
-              <p>
-                   Clark Johnson
-              </p>
-              <span>
-              Art Director </span>
-              <div class="members-socials">
-                  <ul>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+    </div>
   </div>
-</div>
+</ng-container>
+
 <!--end-articles-->
 <!--prize-->
 <div class="prize">
   <div class="container">
-      <h1>win our special prize on our facebook page</h1>
+    <h1>win our special prize on our facebook page</h1>
   </div>
 </div>
 <!--end-prize-->

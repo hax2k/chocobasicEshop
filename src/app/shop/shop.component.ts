@@ -11,12 +11,18 @@ import { CartserviceService } from '../services/cartservice.service';
 })
 export class ShopComponent implements OnInit {
   products: Product[] = chocoItems;
+  lenth: number = 0;
   constructor(private carts: CartserviceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getCartCount();
   }
   addToCart(item: Product) {
-    this.carts.addToCart(item)
+    this.carts.addToCart(item);
     this.toastr.success("Successfully added to cart ");
+    this.getCartCount();
+  }
+  getCartCount() {
+    this.lenth = this.carts.getCartCount();
   }
 }

@@ -5,10 +5,10 @@
         <h4>CHECKOUT</h4>
       </div>
       <div class="col-md-2 cart">
-        <h4><a href="#">chart (2 items)</a></h4>
+        <h4><a routerLink="/cart">chart ({{lenth}} items)</a></h4>
         <ul>
-          <li><a href="#">home /</a></li>
-          <li><a href="#">products</a></li>
+          <li><a routerLink="">home /</a></li>
+          <li><a routerLink="/products">products</a></li>
         </ul>
       </div>
     </div>
@@ -61,7 +61,7 @@
               </form>
             </td>
             <td class="cart-total">
-              {{item.subtotal}}
+              {{item.subtotal | currency}}
             </td>
             <td>
               <a class="cart-remove"><i (click)="removeItem(item)" class="fa-lg fas fa-trash"
@@ -71,14 +71,6 @@
         </table>
       </div>
       <div class="taxat">
-        <form action="#" method="get" class="apply-coupon">
-          <input class="search-field" type="text" placeholder="Coupon Code" value="">
-          <a href="#" class="coupon-btn checkout-btn">Apply Coupon</a>
-        </form>
-        <div class="cart-buttons">
-          <a href="#">Proceed to Checkout</a>
-          <a href="#">Update Cart</a>
-        </div>
         <div class="col-md-6 taxes nopadding">
           <ul>
             <li><a href="#">shipping &amp; taxes</a></li>
@@ -89,18 +81,26 @@
           <div>
             <form class="form-horizontal" role="form">
               <div class="form-group">
-                <div class="col-sm-12">
-                  <input type="email" class="form-control" placeholder="your name">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" name="fname" placeholder="First Name" [(ngModel)]="order.fname" >
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" name="lname" placeholder="Last Name" [(ngModel)]="order.lname" >
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <input type="password" class="form-control" placeholder="your e-mail">
+                  <input type="text" class="form-control" name="address1" placeholder="Address1" [(ngModel)]="order.address1" >
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <input type="password" class="form-control" placeholder="post code">
+                  <input type="text" class="form-control" name="address2" placeholder="Address2" [(ngModel)]="order.address2" >
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" [(ngModel)]="order.zipcode" >
                 </div>
               </div>
             </form>
@@ -115,7 +115,7 @@
                   Cart Subtotal
                 </th>
                 <td>
-                  <strong>${{this.Billing.GrandTotal}}</strong>
+                  <strong>{{this.Billing.GrandTotal|currency}}</strong>
                 </td>
               </tr>
               <tr>
@@ -131,13 +131,13 @@
                   Order Total
                 </th>
                 <td>
-                  <strong>$178.00</strong>
+                  <strong>{{this.Billing.GrandTotal|currency}}</strong>
                 </td>
               </tr>
             </tbody>
           </table>
           <br>
-          <a href="#" class="calculate-shipping">Checkout</a>
+          <a  (click)="addOrder()"class="calculate-shipping" >Place Order</a>
         </div>
       </div>
       <!-- Start -->

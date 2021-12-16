@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/models/products';
+import { CartserviceService } from '../services/cartservice.service';
 import { chocoItems } from './chocoitems';
 declare var $: any;
 @Component({
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
   product4:Product[] = chocoItems.slice(5, 9);
   products: Product[] = this.product3
 
-  constructor() { }
+  constructor(private cartService:CartserviceService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     $('.main-flexslider').flexslider({
@@ -25,7 +27,10 @@ export class HomeComponent implements OnInit {
     });
   }
   walert(item: Product) {
-    window.alert(item.name + " Added to cart")
+    this.cartService.addToCart(item);
+    this.toastr.success("succefully added");
+
   }
+
 
 }
