@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from './api/api/api.component';
+import { ApiComponent } from './universitym/api/api.component';
 import { Error404Component } from './error404/error404.component';
 import { MainComponent } from './main/main/main.component';
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'api',
     component:ApiComponent,
-    loadChildren:()=>import('./api/api.module').then(m=>m.ApiModule)
+    loadChildren:()=>import('./universitym/api.module').then(m=>m.ApiModule)
   },
   {
     path: 'main',
