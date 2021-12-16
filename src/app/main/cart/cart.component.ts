@@ -1,7 +1,7 @@
-import { OrderserviceService } from './../services/orderservice.service';
+import { OrderserviceService } from 'src/app/services/orderservice.service';
 import { Component, OnInit } from '@angular/core';
 import { Product, CartItem, Billing, Order } from 'src/models/products';
-import { CartserviceService } from '../services/cartservice.service';
+import { CartserviceService } from 'src/app/services/cartservice.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

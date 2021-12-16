@@ -31,11 +31,17 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-              <li><a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }" >Home</a></li>
-              <li><a routerLink="/products" routerLinkActive="active">Shop</a></li>
-              <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
-              <li><a routerLink="/about" routerLinkActive="active">About us</a></li>
-              <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+              <li><a  routerLink="/main/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }" >Home</a></li>
+              <li><a routerLink="/main/products" routerLinkActive="active">Shop</a></li>
+              <li><a routerLink="/main/cart" routerLinkActive="active">Cart</a></li>
+              <li><a routerLink="/main/about" routerLinkActive="active">About us</a></li>
+              <li><a routerLink="/main/contact" routerLinkActive="active">Contact</a></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle">Dropdown</a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/api/uslist">University Finder</a></li>
+                </ul>
+                </li>
           </ul>
       </div>
       <!-- /.navbar-collapse -->

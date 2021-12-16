@@ -45,3 +45,12 @@ export class CartItem {
     this._subtotal = value;
   }
 }
+
+export class University {
+  state_province: string
+  country: string;
+  web_pages: string[];
+  name: string;
+  alpha_two_code: string;
+  domains: string[];
+}

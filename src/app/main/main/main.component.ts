@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class AppComponent implements OnInit{
-  title = 'chocoshop';
+export class MainComponent implements OnInit {
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +16,5 @@ export class AppComponent implements OnInit{
     //or document.body.scrollTop = 0;
     //or document.querySelector('body').scrollTo(0,0)
   }
+
 }

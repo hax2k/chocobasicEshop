@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/models/products';
 import { chocoItems } from '../home/chocoitems'
-import { CartserviceService } from '../services/cartservice.service';
+import { CartserviceService } from 'src/app/services/cartservice.service';
 
 @Component({
   selector: 'app-shop',

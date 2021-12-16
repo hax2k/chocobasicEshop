@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/models/products';
-import { CartserviceService } from '../services/cartservice.service';
+import { CartserviceService } from 'src/app/services/cartservice.service';
 import { chocoItems } from './chocoitems';
 declare var $: any;
 @Component({
