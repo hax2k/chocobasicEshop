@@ -11,7 +11,7 @@ export class ApidataComponent implements OnInit {
   constructor( private uni:UniversityService ) { }
 
   ngOnInit(): void {
-    console.log(this.uni.getAllUniversity())
+
   }
 
 }

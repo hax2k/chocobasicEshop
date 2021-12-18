@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -20,6 +22,8 @@ import { Error404Component } from './error404/error404.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule ,
+    MatTableModule,
+    MatPaginatorModule,
     ToastrModule.forRoot({
       timeOut: 1000,
       positionClass: 'toast-top-center',

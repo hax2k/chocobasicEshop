@@ -7,13 +7,18 @@ import { University } from 'src/models/products';
   providedIn: 'root'
 })
 export class UniversityService {
-  COUNTRY: string = 'canada';
-  URL: string = `http://universities.hipolabs.com/search?country=${this.COUNTRY}`;
+  COUNTRY: string;
+
 
   constructor(private http: HttpClient) { }
 
-  getAllUniversity(): Observable<University[]> {
-    return this.http.get<University[]>(this.URL)
+  setCountry(country:string){
+    this.COUNTRY = country;
+  }
+
+  getAllUniversity(country:string): Observable<University[]> {
+    let URL = "http://universities.hipolabs.com/search?country="+country;
+    return this.http.get<University[]>(URL)
   }
 
 }
