@@ -13,6 +13,7 @@ import { ApidataComponent } from './apidata/apidata.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -31,7 +32,12 @@ import { HeaderModule } from '../header/header.module';
     CommonModule,
     MainRoutingModule,
     FormsModule,
-    HeaderModule
+    HeaderModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-top-center',
+
+    })
   ]
 })
 export class MainModule { }

@@ -10,6 +10,7 @@ declare var $: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  isbuy:boolean = true;
   product3:Array<Product> = chocoItems.slice(0, 4);
   product4:Product[] = chocoItems.slice(5, 9);
   products: Product[] = this.product3
@@ -25,6 +26,9 @@ export class HomeComponent implements OnInit {
       prevText: "",
       nextText: "",
     });
+  }
+  enablebuying(){
+    this.isbuy= !this.isbuy
   }
   walert(item: Product) {
     this.cartService.addToCart(item);

@@ -4,13 +4,25 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', '@angular-devkit/build-angular', 'jquery-3.2.1'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
+      , 'karma-jquery'
+    ],
+    files: [
+      "node_modules/jquery/dist/jquery.min.js",
+      "src/assets/js/jquery.min.js",
+      "src/assets/js/bootstrap.js",
+      "src/assets/js/modernizr.js",
+      "src/assets/js/jquery.flexslider-min.js",
+      "src/assets/js/jquery.nouislider.min.js",
+      "src/assets/js/script.js"
+
+      //..rest files
     ],
     client: {
       jasmine: {
